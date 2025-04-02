@@ -24,7 +24,7 @@ namespace VoetbalManager.Models
 			set { _lastName = value; }
 		}
 
-		public List<string> Positions; // = new [ "goalkeeper", "attacker", "midfielder", "defender" ];
+		public List<string> Positions = new List<string>() { "goalkeeper", "attacker", "midfielder", "defender" };
         
 		private string _position;
 
