@@ -78,8 +78,7 @@ namespace VoetbalManager.Models
                 sb.AppendLine(player.ToString());
             }
             sb.AppendLine("--------------");
-            sb.AppendLine("Gemiddelde:");
-            sb.AppendLine(this.AverageNumberOfGoals().ToString("N2"));
+            sb.AppendLine($"Gemiddelde aantal doelpunten: {this.AverageNumberOfGoals().ToString("N2")}");
             return sb.ToString();
         }
     }
