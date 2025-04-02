@@ -64,6 +64,7 @@ namespace VoetbalManager
                 if(selectedTeam != null)
                 {
                     selectedTeam.RemovePlayer(selectedPlayer);
+                    UpdateUI();
                 }
             }
         }
@@ -115,7 +116,7 @@ namespace VoetbalManager
 
             UpdateUI();
 
-            teamInfoTextBox.Text = string.Empty;
+            teamNameTextBox.Clear();
             teamInfoTextBox.Focus();
         }
     }
