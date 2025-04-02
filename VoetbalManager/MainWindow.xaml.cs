@@ -32,15 +32,23 @@ namespace VoetbalManager
         {
             // TODO: Controleer of een team geselecteerd is en toon vervolgens al de informatie van het team.
             // Selecteer vervolgens automatisch de eerste speler van het geselecteerde Team.
+            teamInfoTextBox.Text = string.Empty;
             footballersListBox.Items.Clear();
             
             Team selectedTeam = teamsComboBox.SelectedItem as Team;
             if(selectedTeam != null)
             {
+                //Show team info:
+                teamInfoTextBox.Text = selectedTeam.TeamInformation();
+
+                //Show players:
                 foreach (Footballer player in selectedTeam.Players)
                 {
                     footballersListBox.Items.Add(player);
                 }
+
+                //Select first player:
+                footballersListBox.SelectedIndex = 0;
             }
         }
 
@@ -62,6 +70,8 @@ namespace VoetbalManager
 
         private void FootballersListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            playerInfoTextBox.Text = string.Empty;
+
             // TODO: Toon het resultaat van Information() van de geselecteerde speler (footballer) in playerInfoTextBox.
             Footballer selectedPlayer = footballersListBox.SelectedItem as Footballer;
 
@@ -88,6 +98,12 @@ namespace VoetbalManager
                 selectedTeam.AddPlayer(newPlayer, isCaptainCheckBox.IsChecked.Value);
 
                 UpdateUI();
+
+                firstNameTextBox.Clear();
+                lastNameTextBox.Clear();
+                positionTextBox.Clear();
+                jerseyNumberTextBox.Clear();
+                numberOfGoalsTextBox.Clear();
             }
         }
 
@@ -98,6 +114,9 @@ namespace VoetbalManager
             teamsComboBox.Items.Add(newTeam);
 
             UpdateUI();
+
+            teamInfoTextBox.Text = string.Empty;
+            teamInfoTextBox.Focus();
         }
     }
 }
