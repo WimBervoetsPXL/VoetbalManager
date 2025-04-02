@@ -13,16 +13,14 @@ namespace VoetbalManager
         {
             InitializeComponent();
 
-            /*
             Team team = new Team("Kayserispor");
-            team.AddPlayer(new Footballer("Murat", "Akin", 2, "middenvelder", 3), false);
-            team.AddPlayer(new Footballer("Igor", "Akinfejev", 4, "doelman", 0), false);
-            team.AddPlayer(new Footballer("Kerem", "Aktürkoglu", 5, "aanvaller", 10), true);
-            team.AddPlayer(new Footballer("Chuba", "Akpom", 3, "verdediger", 1), false);
+            team.AddPlayer(new Footballer("Murat", "Akin", "midfielder", 2, 3), false);
+            team.AddPlayer(new Footballer("Igor", "Akinfejev", "goalkeeper", 4, 0), false);
+            team.AddPlayer(new Footballer("Kerem", "Aktürkoglu", "attacker", 5, 10), true);
+            team.AddPlayer(new Footballer("Chuba", "Akpom", "defender", 3, 1), false);
 
             teamsComboBox.Items.Add(team);
             teamsComboBox.SelectedIndex = 0;
-            */
         }
 
         private void TeamsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -35,11 +33,10 @@ namespace VoetbalManager
             // TODO: Controleer of een team geselecteerd is en toon vervolgens al de informatie van het team.
             // Selecteer vervolgens automatisch de eerste speler van het geselecteerde Team.
             footballersListBox.Items.Clear();
+            
             Team selectedTeam = teamsComboBox.SelectedItem as Team;
-
             if(selectedTeam != null)
             {
-                
                 foreach (Footballer player in selectedTeam.Players)
                 {
                     footballersListBox.Items.Add(player);
