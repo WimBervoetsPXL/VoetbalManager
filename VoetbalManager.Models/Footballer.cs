@@ -83,7 +83,11 @@ namespace VoetbalManager.Models
 
 		public string Informatie()
 		{
-			return $"{this.FirstName} {this.LastName}"; //TODO: StringBuilder
+			StringBuilder sb = new StringBuilder();
+			sb.AppendLine($"{this.FirstName} {this.LastName} {this.JerseyNumber}");
+			sb.AppendLine($"Doelpunten: {this.NumberOfGoals}");
+			sb.AppendLine($"Positie: {this.Position}");
+			return sb.ToString();
 		}
     }
 }
